@@ -7,10 +7,16 @@ int sY = 745;
 int eX = 900;
 int eY = 745;
 int openClose = 0;
+int counter = 0;
+int c1x = 100;
+int c2x = 700;
+int cy = 100;
 PImage closedBall;
+// https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiateOdsIDlAhWXop4KHSesBlUQjRx6BAgBEAQ&url=https%3A%2F%2Ftoppng.com%2Fokeball-pokeball-pixel-PNG-free-PNG-Images_164929&psig=AOvVaw3QhIY_1fr4eA2tEIlXzKZv&ust=1570201285490578
 PImage openBall;
+// https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi_5qHirYDlAhWiHTQIHaWLD5YQjRx6BAgBEAQ&url=http%3A%2F%2Fpixelartmaker.com%2Fart%2F6c566d03a5a916b&psig=AOvVaw3QhIY_1fr4eA2tEIlXzKZv&ust=1570201285490578
 PImage pikachu;
-
+// https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi526emsIDlAhXRo54KHbELCQYQjRx6BAgBEAQ&url=http%3A%2F%2Fminecraftpixelartbuildingideas.blogspot.com%2F2015%2F06%2Fpikachu-pixel-art.html&psig=AOvVaw1TYbqJ4zv4y-YLlMFMhzwW&ust=1570201967972652
 
 
 
@@ -19,6 +25,7 @@ void setup()
 	closedBall = loadImage("Pictures/closedBall.png");
 	openBall = loadImage("Pictures/openBall.png");
 	pikachu = loadImage("Pictures/pikachu.png");
+
 
 	size(1000,800);
   	strokeWeight(1);
@@ -51,14 +58,16 @@ void draw()
 	eY = endY;
 
 	if(openClose % 2 != 0){
-		stroke(#FFFF00);
-	  	while(endX > 500){
-	    	eX = sX - (int)(Math.random()*10);
-	    	eY = sY - (int)(Math.random()*10)+2;
-	    	line(sX, sY, eX, eY);
-	    	sX = eX;
-	    	sY = eY;
-	  	}
+		if(counter % 20 == 0){
+			stroke(#FFFF00);
+		  	while(eX > 0){
+		    	eX = sX - (int)(Math.random()*20)- 10;
+		    	eY = sY - (int)(Math.random()*20) -10;
+		    	line(sX, sY, eX, eY);
+		    	sX = eX;
+		    	sY = eY;
+		  	}
+		}
 	}
 
     
