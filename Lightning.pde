@@ -2,15 +2,12 @@ int startX = 900;
 int startY = 745;
 int endX = 900;
 int endY = 745;
-int sX = 900;
-int sY = 745;
-int eX = 900;
-int eY = 745;
+int s1X, s2X = 900;
+int s1Y, s2Y = 745;
+int e1X, e2X = 900;
+int e1Y, e2Y = 745;
 int openClose = 0;
 int counter = 0;
-int c1x = 100;
-int c2x = 700;
-int cy = 100;
 PImage closedBall;
 // https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiateOdsIDlAhWXop4KHSesBlUQjRx6BAgBEAQ&url=https%3A%2F%2Ftoppng.com%2Fokeball-pokeball-pixel-PNG-free-PNG-Images_164929&psig=AOvVaw3QhIY_1fr4eA2tEIlXzKZv&ust=1570201285490578
 PImage openBall;
@@ -33,6 +30,8 @@ void setup()
 }
 void draw()
 {
+	// stroke(0, 0, 0, 0);
+	// background(0);
 	if(openClose % 2 ==0){
 		image(closedBall, 850, 685, 100, 100);
 	}else {
@@ -52,20 +51,28 @@ void draw()
 	  	image(pikachu, endX - 50, endY - 75, 100, 150);
 	}
 
-	sX = endX;
-	sY = endY;
-	eX = endX;
-	eY = endY;
+	s1X = s2X = endX;
+	s1Y = s2Y = endY;
+	e1X = e2X = endX;
+	e1Y = e2Y = endY;
 
 	if(openClose % 2 != 0){
 		if(counter % 20 == 0){
 			stroke(#FFFF00);
-		  	while(eX > 0){
-		    	eX = sX - (int)(Math.random()*20)- 10;
-		    	eY = sY - (int)(Math.random()*20) -10;
-		    	line(sX, sY, eX, eY);
-		    	sX = eX;
-		    	sY = eY;
+		  	while(e1X > 0){
+		    	e1X = s1X - (int)(Math.random()*20) - 10;
+		    	e1Y = s1Y - (int)(Math.random()*20) - 10;
+		    	line(s1X, s1Y, e1X, e1Y);
+		    	s1X = e1X;
+		    	s1Y = e1Y;
+		  	}
+		  	stroke(#FFFF00);
+		  	while(e2X < 1000){
+		    	e2X = s2X - (int)(Math.random()*20) + 10;
+		    	e2Y = s2Y - (int)(Math.random()*20) + 10;
+		    	line(s2X, s2Y, e2X, e2Y);
+		    	s2X = e2X;
+		    	s2Y = e2Y;
 		  	}
 		}
 	}
