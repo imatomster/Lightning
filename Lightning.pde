@@ -30,8 +30,6 @@ void setup()
 }
 void draw()
 {
-	// stroke(0, 0, 0, 0);
-	// background(0);
 	if(openClose % 2 ==0){
 		image(closedBall, 850, 685, 100, 100);
 	}else {
@@ -40,6 +38,9 @@ void draw()
 
 
 	if(openClose % 2 != 0){
+		fill(0,0,0,5);
+		  	stroke(0,0,0,5);
+		  	rect(0,0,1000,800);
 	  	stroke((int)(Math.random()*226), (int)(Math.random()*226), (int)(Math.random()*226));
 	  	while(endX > 500){
 	    	endX = startX - (int)(Math.random()*10);
@@ -60,13 +61,12 @@ void draw()
 		if(counter % 20 == 0){
 			stroke(#FFFF00);
 		  	while(e1X > 0){
-		    	e1X = s1X - (int)(Math.random()*20) - 10;
-		    	e1Y = s1Y - (int)(Math.random()*20) - 10;
+		    	e1X = s1X + (int)(Math.random()*20) - 10;
+		    	e1Y = s1Y + (int)(Math.random()*20) - 10;
 		    	line(s1X, s1Y, e1X, e1Y);
 		    	s1X = e1X;
 		    	s1Y = e1Y;
 		  	}
-		  	stroke(#FFFF00);
 		  	while(e2X < 1000){
 		    	e2X = s2X - (int)(Math.random()*20) + 10;
 		    	e2Y = s2Y - (int)(Math.random()*20) + 10;
@@ -77,7 +77,7 @@ void draw()
 		}
 	}
 
-    
+	counter++;
 }
 void mousePressed()
 {
@@ -88,4 +88,3 @@ void mousePressed()
   	background(0);
   	openClose++;
 }
-
